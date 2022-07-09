@@ -9,6 +9,11 @@ def get_mid_point_of_segment(segment):
     mid_y = (segment['beginning_point']['y'] + segment['end_point']['y']) / 2
     return 'mid point is {}, {}'.format(mid_x, mid_y)
 
+def get_x(point):
+    return point['x']
+
+def get_y(point):
+    return point['y']
 
 if __name__ == '__main__':
     print('insert first point:')
