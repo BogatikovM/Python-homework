@@ -1,0 +1,19 @@
+def make_decart_point(x:float, y:float):
+    return {'x': float(x), 'y': float(y)}
+
+def make_segment(beginning_point, end_point):
+    return {'beginning_point': beginning_point, 'end_point': end_point}
+
+def get_mid_point_of_segment(segment):
+    mid_x = (segment['beginning_point']['x'] + segment['end_point']['x']) / 2
+    mid_y = (segment['beginning_point']['y'] + segment['end_point']['y']) / 2
+    return 'mid point is {}, {}'.format(mid_x, mid_y)
+
+
+if __name__ == '__main__':
+    print('insert first point:')
+    point1 = make_decart_point(input('x: '), input('y: '))
+    print('insert second point:')
+    point2 = make_decart_point(input('x: '), input('y: '))
+    segment = make_segment(point1, point2)
+    print(get_mid_point_of_segment(segment))
