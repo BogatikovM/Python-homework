@@ -15,10 +15,35 @@ def get_x(point):
 def get_y(point):
     return point['y']
 
+def make_rectangle(p, w, h):
+    return {'start point': p, 'width': w, 'hight': h}
+
+def get_start_point(rectangle):
+    return rectangle['start point']
+
+def get_width(rectangle):
+    return rectangle['width']
+
+def get_hight(rectangle):
+    return rectangle['hight']
+
+def contains_point(point, rectangle):
+    start_point = get_start_point(rectangle)
+    width = get_width(rectangle)
+    hight = get_hight(rectangle)
+    if get_x(start_point) < get_x(point) < get_x(start_point) + width and get_y(start_point) < get_y(point) < get_y(start_point) + hight:
+        answer = True
+    else:
+        answer = False
+    return answer
+
 if __name__ == '__main__':
-    print('insert first point:')
-    point1 = make_decart_point(input('x: '), input('y: '))
-    print('insert second point:')
-    point2 = make_decart_point(input('x: '), input('y: '))
-    segment = make_segment(point1, point2)
-    print(get_mid_point_of_segment(segment))
+    start_x = float(input('Start x: '))
+    start_y = float(input('Start y: '))
+    width = float(input('width: '))
+    hight = float(input('hight: '))
+    point_x = float(input('Point x: '))
+    point_y = float(input('Point y: '))
+    rectangle = make_rectangle(make_decart_point(start_x, start_y), width, hight)
+    point = make_decart_point(point_x, point_y)
+    print(contains_point(point, rectangle))
